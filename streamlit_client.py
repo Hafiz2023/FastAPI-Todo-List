@@ -24,13 +24,13 @@ def create_todo():
         if response.status_code == 200:
             st.success("Todo added successfully")
 
-def delete_todo():
+def post_todo():
     todo_id = st.number_input("Enter Todo ID to delete")
-    if st.button("Delete Todo"):
-        response = requests.delete(f"{BASE_URL}/todos/{todo_id}")
+    if st.button("POST Todo"):
+        response = requests.post(f"{BASE_URL}/todos/{todo_id}")
         if response.status_code == 200:
-            st.success("Todo deleted successfully")
+            st.success("Todo post successfully")
 
 if __name__ == "__main__":
     create_todo()
-    delete_todo()
+    post_todo()
