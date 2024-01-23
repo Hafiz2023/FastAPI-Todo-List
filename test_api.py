@@ -9,12 +9,12 @@ client = TestClient(app)
 def test_create_todo():
     response = client.post("/todos/", json={"name": "Test Todo", "description": "Test Description"})
     assert response.status_code == 200
-    assert response.json()["title"] == "Test Todo"
+    assert response.json()["name"] == "Test Todo"
 
 def test_update_todo():
     response = client.put("/todos/1", json={"name": "Updated Todo", "description": "Updated Description"})
     assert response.status_code == 200
-    assert response.json()["title"] == "Updated Todo"
+    assert response.json()["name"] == "Updated Todo"
 
 def test_delete_todo():
     response = client.delete("/todos/1")
